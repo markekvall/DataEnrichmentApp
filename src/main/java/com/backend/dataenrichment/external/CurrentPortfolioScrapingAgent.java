@@ -37,13 +37,11 @@ public class CurrentPortfolioScrapingAgent {
         company.setFunds(getFundList(companyElement));
         company.setEntry(getValueForLabel(companyElement, ENTRY_QUERY));
         companies.add(company);
-        log.info("Parsing company: " + company.getName() + " - sector: " + company.getSector() + " - country: " + company.getCountry() + " - entry: " + company.getEntry());
       }
       log.info("Successfully parsed: " + companies.size() + " companies");
 
     } catch (Exception e) {
-      log.error("Something went wrong while scraping portfolio data");
-      e.printStackTrace();
+      log.error("Something went wrong while scraping portfolio data", e);
     }
     return companies;
   }
@@ -55,7 +53,6 @@ public class CurrentPortfolioScrapingAgent {
       Elements fundDetails = fundSection.parent().select(FUND_QUERY);
       for (Element fundDetail : fundDetails) {
         String fund = fundDetail.text().trim();
-        log.info("fund: " + fund);
         fundList.add(fund);
       }
     }

@@ -11,4 +11,12 @@ public class DataenrichmentConstants {
     public static final String FUND_QUERY = "ul li a.text-primary.font-medium";
     public static final String FUND_LIST_QUERY = "span.font-medium:contains(Fund)";
   }
+
+  public static class GCSFetchingConstants {
+    public static final String BUCKET_NAME = "motherbrain-external-test";
+    public static final String OBJECT_NAME = "interview-test-org.json.gz";
+
+
+  }
+
 }
